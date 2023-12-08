@@ -1,0 +1,9 @@
+.logoContainer {
+    display: flex;
+    align-items: center;
+    padding-left: 0.6rem;
+}
+
+.logoNav {
+    width: 10rem;
+}

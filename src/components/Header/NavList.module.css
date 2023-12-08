@@ -1,0 +1,19 @@
+/* .navList {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.navList a {
+    text-decoration: inherit;
+    color: inherit;
+    padding-right: 1.8rem;
+    font-family: 'Julee', sans-serif;
+    font-size: 1.2rem;
+}
+
+.navList a:hover {
+    color: #AC26FF;
+    font-weight: bold;
+    transition: 0.2s;
+    font-size: 1.22rem;
+}

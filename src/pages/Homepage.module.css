@@ -1,0 +1,5 @@
+.taskContainer {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 400px);
+}

@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/Header/NavBar';
+import TodoContextProvider from './contexts/todo-context';
+import Done from './pages/Done';
+import Favourites from './pages/Favourites';
+import Homepage from "./pages/Homepage";
+import Ideas from './pages/Ideas';
+import Todo from './pages/Todo';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+          <TodoContextProvider>
+              <NavBar />
+              <Routes>
+                  <Route path="/" element={<Homepage />} />
+                  <Route path="/todo" element={<Todo />} />
+                  <Route path="/ideas" element={<Ideas />} />
+                  <Route path="/done" element={<Done />} />
+                  <Route path="/favourites" element={<Favourites />} />
+              </Routes>
+          </TodoContextProvider>
+      </div>
   );
 }
 

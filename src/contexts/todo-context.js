@@ -1,0 +1,30 @@
+import { createContext, useEffect, useState } from "react";
+
+export const TodoContext = createContext("");
+
+export default function TodoContextProvider({children}) {
+    const [tasks, setTasks] = useState([]);
+
+    useEffect(() => {
+        fetch("https://dummyjson.com/todos?limit=30")
+            .then((res) => res.json())
+            .then((result) => {
+                setTasks(result.todos);
+            });
+    }, []);
+    const taskList = tasks.map((task, index) => (
+        <li  key={index}>
+            {task.todo}
+            {/* <AddTaskButton />
+            <AddFavourite /> */}
+        </li>
+    ));
+    // console.log(taskList);
+
+
+    return(
+        <TodoContext.Provider value={{tasks, setTasks, taskList}}>
+            {children}
+        </TodoContext.Provider>
+    )
+}

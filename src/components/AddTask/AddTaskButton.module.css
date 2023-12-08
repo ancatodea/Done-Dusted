@@ -1,0 +1,16 @@
+.addButton {
+    color: #F7F7FF;
+    background-color: #9023ED;
+    width: 8rem;
+    border-radius: 0.2rem;
+    margin-left: 0.2rem;
+    cursor: pointer;
+}
+
+.addButton:active {
+  background: #9023ED;
+  -webkit-box-shadow: inset 0px 0px 5px #212121;
+     -moz-box-shadow: inset 0px 0px 5px #212121;
+          box-shadow: inset 0px 0px 5px #212121;
+   outline: none;
+}

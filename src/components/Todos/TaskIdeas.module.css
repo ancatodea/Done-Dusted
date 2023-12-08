@@ -1,0 +1,15 @@
+.ideasList {
+    list-style: none;
+}
+
+/* .listItem {
+    padding-bottom: 0.2rem;
+} */
+
+.addButton {
+    font-size: 18px;
+    color: #AC26FF;
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
