@@ -3,6 +3,8 @@ import styles from './Ideas.module.css'
 import AddTask from "../components/AddTask/AddTask";
 import { TodoContext } from "../contexts/todo-context";
 import { useContext } from "react";
+import AddTaskButton from "../components/AddTask/AddTaskButton";
+import AddFavourite from "../components/AddTask/AddFavourite";
 
 export default function Ideas() {
     const {tasks} = useContext(TodoContext)
@@ -12,9 +14,13 @@ export default function Ideas() {
             <AddTask />
             <div className={styles.ideasList}>
                 {tasks.map((task, index) => (
-                    <li className={styles.listItem} key={index}>
-                        {task.todo}
-                    </li>
+                    <div className={styles.ideasCard} key={index}>
+                        <li className={styles.listItem}>{task.todo}</li>
+                        <div className={styles.addItems}>
+                            <AddTaskButton />
+                            <AddFavourite />
+                        </div>
+                    </div>
                 ))}
             </div>
         </>

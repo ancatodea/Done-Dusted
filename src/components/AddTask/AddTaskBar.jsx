@@ -1,14 +1,22 @@
-import styles from "./AddTaskBar.module.css"
+import {  useContext } from "react";
+import { AddTaskContext } from "../../contexts/add-task";
+import styles from "./AddTaskBar.module.css";
+import AddTaskButton from "./AddTaskButton";
 
 export default function AddTaskBar() {
 
-    const handleChange = (todo) => {
-        
-    }
+    const { inputText, inputTextHandler } = useContext(AddTaskContext);
 
-    return(
+    return (
         <>
-        <input onChange={handleChange()} className={styles.addTaskBar} type="text" placeholder="Add a new task" />
+            <input
+                value={inputText}
+                onChange={inputTextHandler}
+                className={styles.addTaskBar}
+                type="text"
+                placeholder="Add a new task"
+            />
+            <AddTaskButton />
         </>
-    )
+    );
 }
