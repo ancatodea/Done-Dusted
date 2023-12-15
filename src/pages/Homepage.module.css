@@ -1,5 +1,14 @@
 .taskContainer {
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 400px);
+    /* width: calc(100% - 400px); */
+    margin: 0 13rem;
+}
+
+h2, p {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 4rem;
 }

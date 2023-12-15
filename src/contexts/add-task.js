@@ -1,10 +1,52 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 
 export const AddTaskContext = createContext("");
 
+const tasksReducer = (state = [], action) => {
+    switch (action.type) {
+        case "ADD":
+            const newTask = {
+                title: action.title,
+                completed: false,
+                favourite: false,
+                todos: true,
+                id: Math.floor(Math.random() * 1000),
+            };
+            return [...state, newTask];
+
+        case "COMPLETE":
+            return state.map((task) => {
+                if (task.id === action.id) {
+                    return { ...task, completed: !task.completed };
+                }
+                return task;
+            });
+        case "TODOS":
+            return state.map((task) => {
+                if (task.id === action.id) {
+                    return { ...task, todos: !task.todos };
+                }
+            });
+        case "FAVOURITE":
+            return state.map((task) => {
+                if (task.id === action.id) {
+                    return { ...task, favourite: !task.favourite };
+                }
+            });
+            
+        case "DELETE":
+            return state.filter((task) => task.id !== action.id);
+
+        case "INITIALIZE_TASKS":
+            return action.tasks;
+        default:
+            return state;
+    }
+};
+
 export default function AddTaskContextProvider({ children }) {
     const [inputText, setInputText] = useState("");
-    const [task, setTask] = useState([]);
+    const [task, dispatch] = useReducer(tasksReducer, [])
 
     useEffect(() => {
         if (task.length > 0) {
@@ -12,27 +54,62 @@ export default function AddTaskContextProvider({ children }) {
         }
     }, [task]);
 
-
-    useEffect(() =>{
-        const storedTasks = JSON.parse(localStorage.getItem("task"));
-        if (storedTasks && Array.isArray(storedTasks)) {
-            setTask(storedTasks);
+    useEffect(() => {
+        const savedTasks = localStorage.getItem("task");
+        if (savedTasks) {
+            dispatch({
+                type: "INITIALIZE_TASKS",
+                tasks: JSON.parse(savedTasks),
+            });
         }
-    }, [])
+    }, []);
 
-    const submitTaskHandler = (e) => {
-        // e.preventDefault();
-        setTask([
-            ...task,
-            {
-                title: inputText,
-                completed: false,
-                favourite: false,
-                todo: true,
-                id: Math.floor(Math.random() * 1000),
-            },
-        ]);
+    const addTaskHandler = (task) => {
+        dispatch({
+            type:"ADD",
+            title: task.title,
+        })
         setInputText("");
+    }
+
+    const completedHandler = (id) => {
+        dispatch({
+            type: "COMPLETE",
+            id: id,
+        });
+    };
+
+    const favouriteHandler = (id) => {
+        dispatch({
+            type: "FAVOURITE",
+            id: id,
+        });
+    };
+
+    const deleteTaskHandler = (id) => {
+        dispatch({
+            type: "DELETE",
+            id: id
+        })
+    }
+
+    const todosHandler = (task) => {
+        dispatch({
+            type: "TODOS",
+            id: task.id,
+        });
+    };
+
+    const submitTaskHandler = () => {
+        if (inputText.trim() !== "") {
+            dispatch({
+                type: "ADD",
+                title: inputText,
+            });
+            setInputText("");
+        } else {
+            console.log("Input text is empty. Please enter a task.");
+        }
     };
 
 
@@ -43,16 +120,19 @@ export default function AddTaskContextProvider({ children }) {
     return (
         <AddTaskContext.Provider
             value={{
-                // submitIdeasHandler,
-                setTask,
+                favouriteHandler,
+                todosHandler,
+                deleteTaskHandler,
+                addTaskHandler,
+                completedHandler,
                 inputTextHandler,
                 inputText,
                 submitTaskHandler,
                 setInputText,
-                task
+                task,
             }}
         >
-            {children }
+            {children}
         </AddTaskContext.Provider>
     );
 }

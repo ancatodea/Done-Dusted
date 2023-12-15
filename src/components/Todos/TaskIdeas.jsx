@@ -5,105 +5,105 @@ import { AddTaskContext } from "../../contexts/add-task";
 
 const initialIdeas = [
         {
-            id: 1,
+            id: 1000,
             title: "Do laundry",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 2,
+            id: 2000,
             title: "Go shopping",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 3,
+            id: 3000,
             title: "Bake your favourite cake",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 4,
+            id: 4000,
             title: "Create a plan for your app",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 5,
+            id: 5000,
             title: "Clean the house",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 6,
+            id: 6000,
             title: "Get done the Todo list app",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 7,
+            id: 7000,
             title: "Create an app logo",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 8,
+            id: 8000,
             title: "Implement add task function",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 9,
+            id: 9000,
             title: "Create a new component for the list",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 10,
+            id: 10000,
             title: "Do something that makes you laugh",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 11,
+            id: 11000,
             title: "Get your workout done",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 12,
+            id: 12000,
             title: "Enjoy an evening walk",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 13,
+            id: 13000,
             title: "Plan your meals for the week",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 14,
+            id: 14000,
             title: "Buy Christmas gifts",
             completed: false,
             favourite: false,
             todo: false,
         },
         {
-            id: 15,
+            id: 15000,
             title: "Plan your next trip",
             completed: false,
             favourite: false,
@@ -113,19 +113,29 @@ const initialIdeas = [
 
 export default function Ideas() {
     const [ideas, setIdeas] = useState(initialIdeas);
-    const { setTask } = useContext(AddTaskContext);
+    const { addTaskHandler } = useContext(AddTaskContext);
 
+    // const submitIdeaHandler = (idea) => {
+    //     addTaskHandler((prevTasks) => [
+    //         ...prevTasks,
+    //         {
+    //             title: idea.title,
+    //             completed: idea.completed,
+    //             favourite: idea.favourite,
+    //             todos: true,
+    //             id: idea.id,
+    //         },
+    //     ]);
+    // };
     const submitIdeaHandler = (idea) => {
-        setTask((prevTasks) => [
-            ...prevTasks,
-            {
-                title: idea.title,
-                completed: idea.completed,
-                favourite: idea.favourite,
-                todo: true,
-                id: idea.id,
-            },
-        ]);
+        // Assuming idea is an object with properties like title, completed, favourite, and id
+        addTaskHandler({
+            title: idea.title,
+            completed: idea.completed,
+            favourite: idea.favourite,
+            todos: true,
+            id: idea.id,
+        });
     };
 
     return (

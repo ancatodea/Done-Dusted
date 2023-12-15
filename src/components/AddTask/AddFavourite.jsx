@@ -1,12 +1,18 @@
 import styles from "./AddFavourite.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FaHeart } from "react-icons/fa";
+import { useContext } from "react";
+import { AddTaskContext } from "../../contexts/add-task";
 
 
-export default function AddFavourite() {
+export default function AddFavourite({id}) {
+    const {favouriteHandler} = useContext(AddTaskContext);
+
+    const handleFavoriteClick = () => {
+        favouriteHandler(id)
+    }
     return (
-        <span className={styles.addFavouriteContainer}>
-            <FontAwesomeIcon icon={faStar} />
+        <span onClick={handleFavoriteClick} className={styles.addFavouriteContainer}>
+            <FaHeart />
         </span>
     );
 }

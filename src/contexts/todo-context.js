@@ -14,6 +14,7 @@ export default function TodoContextProvider({ children }) {
                     ...task,
                     completed: false,
                     favorite: false,
+                    todos: true
                 }));
                 setTasks(modifiedTasks)
             });

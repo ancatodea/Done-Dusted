@@ -7,13 +7,11 @@
     text-decoration: inherit;
     color: inherit;
     padding-right: 1.8rem;
-    font-family: 'Julee', sans-serif;
-    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
 }
 
 .navList a:hover {
     color: #AC26FF;
-    font-weight: bold;
-    transition: 0.2s;
-    font-size: 1.22rem;
+    font-weight: 500;
 }

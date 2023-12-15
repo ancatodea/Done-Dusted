@@ -1,10 +1,6 @@
 .todosContainer {
-    position: absolute;
-    right: 1%;
-    top: calc(100% - 460px);
-    width: 300px;
-    height: 560px;
-    /* background-color: #E2C2C6; */
+    margin: 2rem 12.5rem 0 12.5rem;
+    padding: 0.4rem 0.6rem;
     background-color: #E7E6F7;
     border-radius: 2rem;
 }
