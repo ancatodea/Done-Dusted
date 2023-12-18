@@ -1,0 +1,8 @@
+.addFavoriteContainer {
+    color: #d19cff;
+    font-size: 1.2rem;
+}
+
+.favoriteActive {
+    color: #9023ED;
+}

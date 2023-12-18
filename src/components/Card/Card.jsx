@@ -1,19 +1,23 @@
 import CardTitle from "./CardTitle";
 import styles from "./Card.module.css"
-import CardDescription from "./CardDescription";
 import DoneButton from "../AddTask/DoneButton";
-import AddFavourite from "../AddTask/AddFavourite";
+import AddFavorite from "../AddTask/AddFavorite";
 import DeleteButton from "../AddTask/DeleteButton";
 
-export default function Card({title, id, completed, favourite}) {
+export default function Card({todo, id, completed, favorite}) {
     
     return (
         <div className={styles.cardContainer}>
-            <CardTitle cardTitle={title} />
-            <AddFavourite id={id} favourite={favourite} />
-            <CardDescription cardDescription="Here will be displayed the task" />
-            <DoneButton id={id} completed ={completed} />
-            <DeleteButton id={id} />
+            <div className={styles.titleContainer}>
+                <CardTitle cardTitle={todo} />
+                <div className={styles.favoriteContainer}>
+                    <AddFavorite id={id} favorite={favorite} />
+                </div>
+            </div>
+            <div className={styles.doneDeleteConatiner}>
+                <DoneButton id={id} completed={completed} />
+                <DeleteButton id={id} />
+            </div>
         </div>
     );
 }   

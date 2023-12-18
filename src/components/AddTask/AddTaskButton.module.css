@@ -1,8 +1,7 @@
 .addButton {
     color: #F7F7FF;
     background-color: #9023ED;
-    /* width: 6rem; */
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
     margin-left: 0.2rem;
     padding: 10px 0.8rem;
     cursor: pointer;
@@ -15,4 +14,13 @@
      -moz-box-shadow: inset 0px 0px 5px #212121;
           box-shadow: inset 0px 0px 5px #212121;
    outline: none;
+}
+
+
+@media screen and (max-width: 760px) {
+  .addButton {
+    border-radius: 0.4rem;
+    padding: 0.6rem 0.4rem 0 0.4rem;
+    height: 1.8rem;
+  }
 }

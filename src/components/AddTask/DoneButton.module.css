@@ -1,5 +1,11 @@
 
 .doneButtonContainer {
-    color: #EA14FF;
+    color: #d19cff;
     font-size: 1.2rem;
+    display: flex;
+    align-self: center;
+}
+
+.doneActive {
+    color: #9023ED;
 }

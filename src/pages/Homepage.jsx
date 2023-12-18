@@ -29,9 +29,9 @@ export default function Homepage() {
                 {task.map((taskItem) => (
                     <Card
                         key={taskItem.id}
-                        title={taskItem.title}
+                        todo={taskItem.todo}
                         completed={taskItem.completed}
-                        favourite={taskItem.favourite}
+                        favorite={taskItem.favorite}
                         todos={taskItem.todos}
                         id={taskItem.id}
                     />

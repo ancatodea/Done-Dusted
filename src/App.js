@@ -4,7 +4,7 @@ import NavBar from './components/Header/NavBar';
 import AddTaskContextProvider from './contexts/add-task';
 import TodoContextProvider from './contexts/todo-context';
 import Done from './pages/Done';
-import Favourites from './pages/Favourites';
+import Favorites from './pages/Favorites';
 import Homepage from "./pages/Homepage";
 import Ideas from './pages/Ideas';
 import Todo from './pages/Todo';
@@ -20,7 +20,7 @@ function App() {
                       <Route path="/todo" element={<Todo />} />
                       <Route path="/ideas" element={<Ideas />} />
                       <Route path="/done" element={<Done />} />
-                      <Route path="/favourites" element={<Favourites />} />
+                      <Route path="/favorites" element={<Favorites />} />
                   </Routes>
               </AddTaskContextProvider>
           </TodoContextProvider>

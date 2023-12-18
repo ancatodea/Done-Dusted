@@ -1,5 +1,5 @@
 .todosContainer {
-    margin: 2rem 12.5rem 0 12.5rem;
+    margin: 2rem 16rem 0rem 20rem;
     padding: 0.4rem 0.6rem;
     background-color: #E7E6F7;
     border-radius: 2rem;
@@ -7,5 +7,36 @@
 
 .taskContainerHeading {
     text-align: center;
+    font-size: 1.4rem;
+    margin: 1.2rem 0 1.8rem 2rem;
+}
+
+@media screen and (max-width: 760px) {
+  .todosContainer {
+    margin: 2rem 4rem 0 4rem;
+    padding: 0.2rem 1.8rem 0.2rem 0rem;
+}
+  .taskContainerHeading {
     font-size: 1.2rem;
 }
+}
+
+@media screen and (max-width: 480px) {
+  .todosContainer {
+    margin: 2rem 2rem 0 2rem;
+}
+  .taskContainerHeading {
+    font-size: 1rem;
+}
+}
+
+@media screen and (max-width: 1100px) {
+  .todosContainer {
+    margin: 2rem 8rem 0 10rem;
+    padding: 0.2rem 1.8rem 0.2rem 0rem;
+}
+  .taskContainerHeading {
+    font-size: 1.2rem;
+}
+}
+

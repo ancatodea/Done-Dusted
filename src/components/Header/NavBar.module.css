@@ -10,3 +10,24 @@
     background-color: #E7E6F7;
     padding: 0.4rem 0;
 }
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 760px) {
+  .menuIcon {
+    display: block;     
+  }
+}
+
+.menuBarsIcon {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem 0rem 0rem;
+}
+
+.closeIcon {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.6rem 0rem 0rem;
+}

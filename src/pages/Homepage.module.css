@@ -1,8 +1,9 @@
 .taskContainer {
+    margin: 0 16rem;
     display: flex;
-    justify-content: space-between;
-    /* width: calc(100% - 400px); */
-    margin: 0 13rem;
+    max-width: 1440px;
+    gap: 0.6rem;
+    flex-wrap: wrap;
 }
 
 h2, p {
@@ -11,4 +12,18 @@ h2, p {
 
 h2 {
     margin-top: 4rem;
+}
+
+@media screen and (max-width: 920px) {
+  .taskContainer {
+    margin: 0 8rem;
+    justify-content: center;
+
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .taskContainer {
+      margin: 0 4rem;
+  }
 }

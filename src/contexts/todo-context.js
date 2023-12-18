@@ -9,7 +9,6 @@ export default function TodoContextProvider({ children }) {
         fetch("https://dummyjson.com/todos?limit=30")
             .then((res) => res.json())
             .then((result) => {
-                // Modify the API response to include 'favorite' property set to false
                 const modifiedTasks = result.todos.map((task) => ({
                     ...task,
                     completed: false,

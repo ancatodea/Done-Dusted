@@ -1,0 +1,52 @@
+.todosListContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 18rem;
+}
+
+.listItem {
+    list-style: none;
+}
+
+.todosList {
+    padding: 1rem 0.6rem;
+    margin-top: 0.4rem;
+    background-color: #E7E6F7;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addItems, .favoriteTitle {
+    display: flex;
+    gap: 0.6rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .todosListContainer {
+    margin: 0 10rem;
+}
+}
+
+@media screen and (max-width: 980px) {
+  .todosListContainer {
+    margin: 0 4rem;
+}
+}
+
+@media screen and (max-width: 780px) {
+  .todosListContainer {
+    margin: 0 4rem;
+}
+  .todosList {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .todosListContainer {
+    margin: 0 2rem;
+}
+}

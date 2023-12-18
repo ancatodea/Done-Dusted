@@ -1,11 +1,5 @@
-/* .navList {
-    display: flex;
-    justify-content: space-between;
-} */
-
 .navList a {
     text-decoration: inherit;
-    color: inherit;
     padding-right: 1.8rem;
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
@@ -14,4 +8,52 @@
 .navList a:hover {
     color: #AC26FF;
     font-weight: 500;
+}
+
+.navList.showMenu {
+    display: flex;
+    position: absolute;
+    top: 3rem;
+    right:0;
+    animation-name: mobilemenu;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+    background-color: #E7E6F7;
+    align-items: center;
+}
+
+.navList.showMenu a {
+  font-size: 1.1rem;
+}
+
+.activeLink {
+  color: #AC26FF ;
+  font-weight: 500;
+}
+
+@keyframes mobilemenu {
+    from {
+        width: 0;
+        height: 6rem;
+        opacity: 0;
+        left: 50%;
+        border-radius: 2rem;
+    }
+
+    to {
+        width: 100vw;
+        height: 12rem;
+        left: 0;
+        opacity: 1;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 760px) {
+  .navList {
+    display: none;
+}
 }

@@ -6,9 +6,9 @@ const tasksReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD":
             const newTask = {
-                title: action.title,
+                todo: action.todo,
                 completed: false,
-                favourite: false,
+                favorite: false,
                 todos: true,
                 id: Math.floor(Math.random() * 1000),
             };
@@ -17,7 +17,11 @@ const tasksReducer = (state = [], action) => {
         case "COMPLETE":
             return state.map((task) => {
                 if (task.id === action.id) {
-                    return { ...task, completed: !task.completed };
+                    return {
+                        ...task,
+                        completed: !task.completed,
+                        todos: task.completed,
+                    };
                 }
                 return task;
             });
@@ -27,13 +31,14 @@ const tasksReducer = (state = [], action) => {
                     return { ...task, todos: !task.todos };
                 }
             });
-        case "FAVOURITE":
+        case "FAVORITE":
             return state.map((task) => {
                 if (task.id === action.id) {
-                    return { ...task, favourite: !task.favourite };
+                    return { ...task, favorite: !task.favorite };
                 }
+                return task;
             });
-            
+
         case "DELETE":
             return state.filter((task) => task.id !== action.id);
 
@@ -67,7 +72,7 @@ export default function AddTaskContextProvider({ children }) {
     const addTaskHandler = (task) => {
         dispatch({
             type:"ADD",
-            title: task.title,
+            todo: task.todo,
         })
         setInputText("");
     }
@@ -79,9 +84,9 @@ export default function AddTaskContextProvider({ children }) {
         });
     };
 
-    const favouriteHandler = (id) => {
+    const favoriteHandler = (id) => {
         dispatch({
-            type: "FAVOURITE",
+            type: "FAVORITE",
             id: id,
         });
     };
@@ -91,6 +96,8 @@ export default function AddTaskContextProvider({ children }) {
             type: "DELETE",
             id: id
         })
+        const updatedTasks = task.filter((taskItem) => taskItem.id !== id);
+        localStorage.setItem("task", JSON.stringify(updatedTasks));
     }
 
     const todosHandler = (task) => {
@@ -104,12 +111,10 @@ export default function AddTaskContextProvider({ children }) {
         if (inputText.trim() !== "") {
             dispatch({
                 type: "ADD",
-                title: inputText,
+                todo: inputText,
             });
             setInputText("");
-        } else {
-            console.log("Input text is empty. Please enter a task.");
-        }
+        } 
     };
 
 
@@ -120,7 +125,7 @@ export default function AddTaskContextProvider({ children }) {
     return (
         <AddTaskContext.Provider
             value={{
-                favouriteHandler,
+                favoriteHandler,
                 todosHandler,
                 deleteTaskHandler,
                 addTaskHandler,

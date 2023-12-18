@@ -1,4 +1,11 @@
 .addTaskBar {
-    width: calc(100% - 20rem);
+    width: 32rem;
     height: 2rem;
 }
+
+@media screen and (max-width: 380px) {
+  .addTaskBar {
+      width: 12rem
+  }
+}
+

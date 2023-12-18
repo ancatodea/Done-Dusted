@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AddFavourite from "../components/AddTask/AddFavourite";
+import AddFavorite from "../components/AddTask/AddFavorite";
 import AddTask from "../components/AddTask/AddTask";
 import DeleteButton from "../components/AddTask/DeleteButton";
 import DoneButton from "../components/AddTask/DoneButton";
@@ -13,23 +13,26 @@ export default function Done() {
     const todosTasks = task.filter((task) => task.completed);
     return (
         <>
-            <Title title="Done" />
+            <Title title="Accomplishments Chronicle" />
             <AddTask />
             <div className={styles.todosListContainer}>
                 {todosTasks.map((task) => (
                     <div key={task.id} className={styles.todosList}>
-                        <li className={styles.listItem} key={task.id}>
-                            {task.title}
-                        </li>
+                        <div className={styles.favoriteTitle}>
+                            <AddFavorite
+                                id={task.id}
+                                favorite={task.favorite}
+                            />
+                            <li className={styles.listItem} key={task.id}>
+                                {task.todo}
+                            </li>
+                        </div>
                         <div className={styles.addItems}>
                             <DoneButton
                                 id={task.id}
                                 completed={task.completed}
                             />
-                            <AddFavourite
-                                id={task.id}
-                                favourite={task.favourite}
-                            />
+
                             <DeleteButton id={task.id} />
                         </div>
                     </div>

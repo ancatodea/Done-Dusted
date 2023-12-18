@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AddFavourite from "../components/AddTask/AddFavourite";
+import AddFavorite from "../components/AddTask/AddFavorite";
 import AddTask from "../components/AddTask/AddTask";
 import DeleteButton from "../components/AddTask/DeleteButton";
 import DoneButton from "../components/AddTask/DoneButton";
@@ -9,24 +9,28 @@ import styles from "./Todo.module.css"
 
 export default function Todo() {
     const {task} = useContext(AddTaskContext)
-    console.log(task)
 
     const todosTasks = task.filter((task) => task.todos)
     return (
         <>
-            <Title title="Get things done, now!" />
+            <Title title="Task Agenda Dashboard" />
             <AddTask />
             <div className={styles.todosListContainer}>
                 {todosTasks.map((task) => (
                     <div key={task.id} className={styles.todosList}>
-                        <li className={styles.listItem} key={task.id}>
-                            {task.title}
-                        </li>
-                        <div className={styles.addItems}>
-                            <DoneButton id={task.id} completed={task.completed} />
-                            <AddFavourite
+                        <div className={styles.favoriteTitle}>
+                            <AddFavorite
                                 id={task.id}
-                                favourite={task.favourite}
+                                favorite={task.favorite}
+                            />
+                            <li className={styles.listItem} key={task.id}>
+                                {task.todo}
+                            </li>
+                        </div>
+                        <div className={styles.addItems}>
+                            <DoneButton
+                                id={task.id}
+                                completed={task.completed}
                             />
                             <DeleteButton id={task.id} />
                         </div>
