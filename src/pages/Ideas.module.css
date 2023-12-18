@@ -5,7 +5,7 @@
 .ideasList {
     display: flex;
     flex-direction: column;
-    margin: 0 13rem;
+    margin: 0 18rem;
 }
 
 .ideasCard {

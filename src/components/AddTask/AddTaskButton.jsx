@@ -21,13 +21,13 @@ export default function AddTaskButton() {
 
     return (
         <>
-            <a
+            <button
                 onClick={submitTaskHandler}
                 type="submit"
                 className={styles.addButton}
             >
                 {isSmallScreen ? "Add" : "Add Task"}
-            </a>
+            </button>
         </>
     );
 }
